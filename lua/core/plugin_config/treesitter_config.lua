@@ -67,4 +67,7 @@ vim.defer_fn(function()
   }
 end, 0)
 
-vim.cmd('set foldmethod=expr')
+-- Enable treesitter folding for all languages
+vim.cmd [[ set foldmethod=expr ]]
+vim.cmd [[ set foldexpr=nvim_treesitter#foldexpr() ]]
+vim.cmd [[ set foldlevelstart=99 ]]

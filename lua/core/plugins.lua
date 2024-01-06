@@ -199,6 +199,7 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
+  "nvim-treesitter/nvim-treesitter-context",
   -- require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
