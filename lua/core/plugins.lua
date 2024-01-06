@@ -205,7 +205,6 @@ require('lazy').setup({
 
   -- Personal PLugins
   'github/copilot.vim',
-  'puremourning/vimspector',
   'nvim-lua/plenary.nvim',
   'ThePrimeagen/harpoon',
   'BurntSushi/ripgrep',
@@ -217,20 +216,19 @@ require('lazy').setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
-      'MunifTanjim/nui.nvim'
+      'MunifTanjim/nui.nvim',
+      {
+        's1n7ax/nvim-window-picker',
+        name = 'window-picker',
+        event = 'VeryLazy',
+        version = '2.*',
+        config = function()
+            require('window-picker').setup({
+              hint = 'floating-big-letter',
+            })
+        end,
+      },
     }
-  },
-
-  {
-    's1n7ax/nvim-window-picker',
-    name = 'window-picker',
-    event = 'VeryLazy',
-    version = '2.*',
-    config = function()
-        require'window-picker'.setup({
-          hint = 'floating-big-letter',
-        })
-    end,
   },
 
   -- Color schemes
