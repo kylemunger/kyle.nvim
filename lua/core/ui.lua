@@ -2,7 +2,7 @@
 -- See `:help vim.highlight.on_yank()`
 
 -- set current theme to gruvbox
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme dracula")
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -20,7 +20,7 @@ function set_random_theme()
         "nord",
         "solarized",
         "gruvbox",
-        "tokyonight",
+        -- "tokyonight",
         "dracula",
         "ayu",
         "rose-pine",

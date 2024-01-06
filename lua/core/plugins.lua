@@ -238,7 +238,6 @@ require('lazy').setup({
   "altercation/vim-colors-solarized",
   "morhetz/gruvbox",
   "dracula/vim",
-  "folke/tokyonight-vim",
   "mhartington/oceanic-next",
   "Shatur/neovim-ayu",
   "rose-pine/neovim",
