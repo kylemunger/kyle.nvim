@@ -7,12 +7,6 @@ vim.keymap.set('n', '<leader>R', ':w<CR>:!python3 %<CR>', { desc = 'Run Python f
 vim.keymap.set('n', '<F5>', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<C-space>', '<C-\\><C-n>', { noremap = true, silent = true })
 
--- Harpoon keymaps
-vim.keymap.set('n', '<leader>Hm', ':lua require("harpoon.mark").add_file()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>Hl', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>Hn', ':lua require("harpoon.ui").nav_next()<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>Hp', ':lua require("harpoon.ui").nav_prev()<CR>', { noremap = true, silent = true })
-
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
