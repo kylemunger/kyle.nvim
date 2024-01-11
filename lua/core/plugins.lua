@@ -210,6 +210,7 @@ require('lazy').setup({
   'ThePrimeagen/harpoon',
   'BurntSushi/ripgrep',
   'morhetz/gruvbox',
+  'karb94/neoscroll.nvim',
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -241,5 +242,6 @@ require('lazy').setup({
   "mhartington/oceanic-next",
   "Shatur/neovim-ayu",
   "rose-pine/neovim",
-  "sainnhe/everforest"
+  "sainnhe/everforest",
+  "rafi/awesome-vim-colorschemes",
 }, {})

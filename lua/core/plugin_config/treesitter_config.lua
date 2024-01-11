@@ -71,3 +71,11 @@ end, 0)
 vim.cmd [[ set foldmethod=expr ]]
 vim.cmd [[ set foldexpr=nvim_treesitter#foldexpr() ]]
 vim.cmd [[ set foldlevelstart=99 ]]
+
+local function fix_fold()
+  vim.cmd [[ set foldmethod=expr ]]
+  vim.cmd [[ set foldexpr=nvim_treesitter#foldexpr() ]]
+  vim.cmd [[ set foldlevelstart=99 ]]
+end
+
+vim.api.nvim_create_user_command('FixFold', fix_fold, {})
