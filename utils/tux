@@ -1,0 +1,11 @@
+#!/bin/bash
+
+tmux new-session -s devsession -n main -d
+tmux split-window -h -p 25
+tmux select-pane -t 0
+tmux send-keys 'nvim .' C-m
+# tmux select-pane -t 1
+# tmux send-keys 'echo 1' 
+# tmux select-pane -t 2
+# tmux send-keys 'echo 2' 
+tmux attach-session -t devsession

@@ -1,0 +1,30 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+local_conf="/home/kylem/utils/etc/redis.conf"
+container_conf="/usr/local/etc/redis/redis.conf"
+local_aof="/home/kylem/utils/etc/appendonly.aof"
+
+if [ $1 == "start" ]; then
+    if [ "$(redis-cli ping)" == "PONG" ]; then
+        echo "redis is already running"
+        exit 0
+    fi
+
+    dclean -c
+    sudo docker run --name skd-redis \
+    -v "$local_conf:$container_conf" \
+    -v $local_aof:/data \
+    -p 6379:6379 \
+    -d redis redis-server /usr/local/etc/redis/redis.conf
+fi
+
+if [ "$1" == "stop" ]; then
+    if [ "$(redis-cli ping)" != "PONG" ]; then
+        echo "redis is already stopped"
+        exit 0
+    fi
+    sudo docker stop skd-redis
+    dclean -c
+fi

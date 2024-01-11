@@ -1,0 +1,39 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# Configure and check flags
+containers=false
+images=false
+kill=false
+
+while getopts ":cik" opt; do
+    case $opt in
+        c) containers=true;;
+        i) images=true;;
+        k) kill=true;;
+        \?) echo "Invalid option: -$OPTARG" >&2 && exit 1;;
+    esac
+done
+
+if $kill; then
+    echo "Resetting docker..."
+    {
+        sudo docker kill $(sudo docker ps -qa --no-trunc) || true
+    } 2>/dev/null
+fi
+
+if $containers; then
+    echo "Cleaning containers..."
+    {
+        sudo docker rm $(sudo docker ps -qa --no-trunc --filter "status=exited") || true
+        sudo docker rm $(sudo docker ps -qa --no-trunc --filter "status=created") || true
+    } 2>/dev/null
+fi
+# Clean images
+if $images; then
+    echo "Cleaning images..."
+    {
+        sudo docker rmi $(sudo docker images -qa --no-trunc) || true
+    } 2>/dev/null
+fi
