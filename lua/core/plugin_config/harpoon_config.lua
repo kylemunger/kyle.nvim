@@ -13,9 +13,10 @@ local function run_python_in_tmux_right()
 
     -- Send the python3 run command to the tmux pane on the right
     require('harpoon.tmux').sendCommand('{right-of}', 'python3 ' .. file_name)
+    vim.fn.system('tmux send-keys -t {right-of} Enter')
 
     -- Navigate to the tmux pane on the right
-    require('harpoon.tmux').gotoTerminal('{right-of}')
+    -- require('harpoon.tmux').gotoTerminal('{right-of}')
 end
 
 local function run_python_with_args_in_tmux_right()
@@ -30,12 +31,12 @@ local function run_python_with_args_in_tmux_right()
 
     -- Send the python3 run command with custom arguments to the tmux pane on the right
     require('harpoon.tmux').sendCommand('{right-of}', 'python3 ' .. file_name .. ' ' .. args)
-
-    -- Navigate to the tmux pane on the right
-    require('harpoon.tmux').gotoTerminal('{right-of}')
+    vim.fn.system('tmux send-keys -t {right-of} Enter')
 end
 
 vim.api.nvim_create_user_command('RunPythonTmuxRight', run_python_in_tmux_right, {})
 vim.api.nvim_create_user_command('RunPythonTmuxRightWithArgs', run_python_with_args_in_tmux_right, {})
 vim.keymap.set('n', '<leader>rt', ':RunPythonTmuxRight<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ra', ':RunPythonTmuxRightWithArgs<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>rT', ':RunPythonTmuxRight<CR>:lua require("harpoon.tmux").gotoTerminal("{right-of}")<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>rA', ':RunPythonTmuxRightWithArgs<CR>:lua require("harpoon.tmux").gotoTerminal("{right-of}")<CR>', { noremap = true, silent = true })
