@@ -64,13 +64,14 @@ local servers = {
       plugins = {
         pycodestyle = {
           ignore = {'E302', 'E305', 'E501', 'E231', 'E261', },
-          maxLineLength = 120
+          maxLineLength = 120,
+          enabled = true
         },  -- Example of setting line length
         pyflakes = {
           enabled = false
         },
         flake8 = {
-            enabled = false
+            enabled = true
         },
         black = {
             enabled = true,

@@ -26,3 +26,5 @@ vim.keymap.set('n', '<leader>mk', '<C-w>k', { desc = 'Go to top window', silent 
 vim.keymap.set('n', '<leader>mj', '<C-w>j', { desc = 'Go to bottom window', silent = true })
 
 vim.api.nvim_set_keymap('n', '<leader>f', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>o', 'o<Esc>', { desc = 'Open new line below and insert', silent = true })
+vim.keymap.set('n', '<leader>O', 'O<Esc>', { desc = 'Open new line above and insert', silent = true })
