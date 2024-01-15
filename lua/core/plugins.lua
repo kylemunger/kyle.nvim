@@ -211,6 +211,8 @@ require('lazy').setup({
   'BurntSushi/ripgrep',
   'morhetz/gruvbox',
   'karb94/neoscroll.nvim',
+  -- 'mhartington/formatter.nvim',
+  'jose-elias-alvarez/null-ls.nvim',
 
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -225,9 +227,9 @@ require('lazy').setup({
         event = 'VeryLazy',
         version = '2.*',
         config = function()
-            require('window-picker').setup({
-              hint = 'floating-big-letter',
-            })
+          require('window-picker').setup({
+            hint = 'floating-big-letter',
+          })
         end,
       },
     }

@@ -60,31 +60,30 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   pylsp = {
-    pylsp ={
+    pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = {'E302', 'E305', 'E501', 'E231', 'E261', },
           maxLineLength = 120,
-          enabled = true
-        },  -- Example of setting line length
+          enabled = false
+        }, -- Example of setting line length
         pyflakes = {
           enabled = false
         },
         flake8 = {
-            enabled = true
+          ignore = { "E501" },
+          enabled = true,
+          maxLineLength = 120
         },
         black = {
-            enabled = true,
-            lineLength = 88
-        },
-        yapf = {
-            enabled = false
+          ignore = { "E501" },
+          enabled = true,
+          lineLength = 120
         }
       }
     }
   },
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {

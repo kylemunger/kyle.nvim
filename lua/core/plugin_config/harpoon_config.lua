@@ -36,26 +36,24 @@ vim.keymap.set('n', '<leader>rh', function() run_python_in_tmux('{left-of}', fal
 vim.keymap.set('n', '<leader>rj', function() run_python_in_tmux('{below-of}', false, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux bottom pane, no args, no goto' })
 vim.keymap.set('n', '<leader>rk', function() run_python_in_tmux('{above-of}', false, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux top pane, no args, no goto' })
 vim.keymap.set('n', '<leader>rl', function() run_python_in_tmux('{right-of}', false, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux right pane, no args, no goto' })
-vim.keymap.set('n', '<leader>rs', function() run_python_in_tmux('std', false, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux std pane, no args, no goto' })
+vim.keymap.set('n', '<leader>rs', function() run_python_in_tmux(1, false, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux std pane, no args, no goto' })
 
 -- 5-8: No args, but goto
 vim.keymap.set('n', '<leader>rH', function() run_python_in_tmux('{left-of}', false, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux left pane, no args, goto pane' })
 vim.keymap.set('n', '<leader>rJ', function() run_python_in_tmux('{below-of}', false, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux bottom pane, no args, goto pane' })
 vim.keymap.set('n', '<leader>rK', function() run_python_in_tmux('{above-of}', false, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux top pane, no args, goto pane' })
 vim.keymap.set('n', '<leader>rL', function() run_python_in_tmux('{right-of}', false, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux right pane, no args, goto pane' })
-vim.keymap.set('n', '<leader>rS', function() run_python_in_tmux('std', false, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux std pane, no args, goto pane' })
 
 -- 9-12: Args, no goto
 vim.keymap.set('n', '<leader>rah', function() run_python_in_tmux('{left-of}', true, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux left pane with args, no goto' })
 vim.keymap.set('n', '<leader>raj', function() run_python_in_tmux('{below-of}', true, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux bottom pane with args, no goto' })
 vim.keymap.set('n', '<leader>rak', function() run_python_in_tmux('{above-of}', true, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux top pane with args, no goto' })
 vim.keymap.set('n', '<leader>ral', function() run_python_in_tmux('{right-of}', true, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux right pane with args, no goto' })
-vim.keymap.set('n', '<leader>ras', function() run_python_in_tmux('std', true, false) end, { noremap = true, silent = true, desc = 'Run Python in tmux std pane with args, no goto' })
+vim.keymap.set('n', '<leader>ras', function() run_python_in_tmux(1, true, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux std pane with args, no goto' })
 
 -- 13-16: Args and goto
 vim.keymap.set('n', '<leader>raH', function() run_python_in_tmux('{left-of}', true, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux left pane with args, goto pane' })
 vim.keymap.set('n', '<leader>raJ', function() run_python_in_tmux('{below-of}', true, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux bottom pane with args, goto pane' })
 vim.keymap.set('n', '<leader>raK', function() run_python_in_tmux('{above-of}', true, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux top pane with args, goto pane' })
 vim.keymap.set('n', '<leader>raL', function() run_python_in_tmux('{right-of}', true, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux right pane with args, goto pane' })
-vim.keymap.set('n', '<leader>raS', function() run_python_in_tmux('std', true, true) end, { noremap = true, silent = true, desc = 'Run Python in tmux std pane with args, goto pane' })
 
