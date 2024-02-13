@@ -1,0 +1,32 @@
+#!/bin/bash
+
+PATH="$HOME/.utils:$PATH"
+alias nvconf="cd /home/kyle/.config/nvim && nvim ."
+alias dev="tux"
+alias reload="source ~/.bashrc"
+alias k="kubectl"
+alias sdh="cd \$(find * -path miniconda3* -prune -o -type d -print | fzf)"
+alias sdn="cd \$(find * -path miniconda3* -prune -o -type d -print | fzf) && nvim ."
+alias sdp="pushd \$(find * -path miniconda3* -prune -o -type d -print | fzf)"
+alias sd="cd ~ && cd \$(find * -path miniconda3* -prune -o -path snap* -prune -o -type d -print | fzf)"
+# alias sd="cd ~ && cd \$(find * -path miniconda3* -prune -o -type d -print | fzf)"
+alias ss='eval "$(starship init bash)"'
+alias mac='rdesktop NY797.macincloud.com:6000 -u user257669 -p crf21673npu'
+alias py='python3'
+alias sman='compgen -c | fzf | xargs man'
+
+fzf_history_search() {
+    # local selected_command=$(history | fzf --no-sort --tac | sed 's/^[ ]*[0-9]*[ ]*//')
+    local history=$(cat /home/kyle/.bash_history)
+    local history_no_dups=$(python3 /home/kyle/.utils/bin/etc/remove_dups.py "$history")
+    local selected_command=$(echo "$history_no_dups" | fzf --no-sort --tac)
+    # local selected_command=$(cat /home/kyle/.bash_history | python3 /home/kunger/.utils/bin/etc/remove_dups.py | fzf --no-sort --tac)
+    READLINE_LINE="$selected_command"
+    READLINE_POINT=${#selected_command}
+}
+bind -x '"\C-x\C-r": fzf_history_search'
+
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+eval "$(direnv hook bash)"
+direnv reload > /dev/null 2>&1
