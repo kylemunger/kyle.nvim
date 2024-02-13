@@ -4,7 +4,7 @@ vim.keymap.set({ 'n', 'v', 'i', 't' }, '<C-c>', '<Esc>', { silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set('n', '<Leader>C', ':Copilot<CR>', { desc = 'Open Copilot completions' })
 vim.keymap.set('n', '<leader>R', ':w<CR>:!python3 %<CR>', { desc = 'Run Python file' })
-vim.keymap.set('n', '<F5>', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
+-- vim.keymap.set('n', '<F5>', ':w<CR>:!python3 %<CR>', { noremap = true, silent = true })
 vim.keymap.set('t', '<C-space>', '<C-\\><C-n>', { noremap = true, silent = true })
 
 -- Remap for dealing with word wrap

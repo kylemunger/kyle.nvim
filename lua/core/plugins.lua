@@ -199,10 +199,9 @@ require('lazy').setup({
     },
     build = ':TSUpdate',
   },
-  "nvim-treesitter/nvim-treesitter-context",
+  'nvim-treesitter/nvim-treesitter-context',
   -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
-
+  require 'kickstart.plugins.debug',
 
   -- Personal PLugins
   'github/copilot.vim',
@@ -227,23 +226,88 @@ require('lazy').setup({
         event = 'VeryLazy',
         version = '2.*',
         config = function()
-          require('window-picker').setup({
+          require('window-picker').setup {
             hint = 'floating-big-letter',
-          })
+          }
         end,
       },
-    }
+    },
   },
 
+  {
+    'xbase-lab/xbase',
+    run = 'make install',
+    requires = {
+      'neovim/nvim-lspconfig',
+    },
+    config = function()
+      require('xbase').setup {}
+    end,
+  },
   -- Color schemes
-  "joshdick/onedark.vim",
-  "arcticicestudio/nord-vim",
-  "altercation/vim-colors-solarized",
-  "morhetz/gruvbox",
-  "dracula/vim",
-  "mhartington/oceanic-next",
-  "Shatur/neovim-ayu",
-  "rose-pine/neovim",
-  "sainnhe/everforest",
-  "rafi/awesome-vim-colorschemes",
+  'joshdick/onedark.vim',
+  'arcticicestudio/nord-vim',
+  'altercation/vim-colors-solarized',
+  'morhetz/gruvbox',
+  'dracula/vim',
+  'mhartington/oceanic-next',
+  'Shatur/neovim-ayu',
+  'rose-pine/neovim',
+  'sainnhe/everforest',
+  'rafi/awesome-vim-colorschemes',
+
+  {
+    'vidocqh/data-viewer.nvim',
+    opts = {},
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'kkharji/sqlite.lua',
+    },
+  },
+
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    opts = {
+      show_help = 'no',          -- Show help text for CopilotChatInPlace, default: yes
+      debug = false,             -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
+      disable_extra_info = 'no', -- Disable extra information (e.g: system prompt) in the response.
+    },
+    build = function()
+      vim.notify "Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim."
+    end,
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>cce', '<cmd>CopilotChatExplain<cr>', desc = 'CopilotChat - Explain code' },
+      { '<leader>cct', '<cmd>CopilotChatTests<cr>',   desc = 'CopilotChat - Generate tests' },
+      {
+        '<leader>cci',
+        function()
+          local input = vim.fn.input 'Ask Copilot: '
+          if input ~= '' then
+            vim.cmd('CopilotChat ' .. input)
+          end
+        end,
+        desc = 'CopilotChat - Ask input',
+      },
+      {
+        '<leader>ccv',
+        ':CopilotChatVisual',
+        mode = 'x',
+        desc = 'CopilotChat - Open in vertical split',
+      },
+      {
+        '<leader>ccx',
+        ':CopilotChatInPlace<cr>',
+        mode = 'x',
+        desc = 'CopilotChat - Run in-place code',
+      },
+    },
+  },
+
+  {
+    'VonHeikemen/fine-cmdline.nvim',
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    },
+  },
 }, {})
